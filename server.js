@@ -30,7 +30,7 @@ function coinFlip() {
     }
 
 function coinFlips(flips) {
-    var flipArray = new Array[flips]
+    var flipArray = []
     for (let i = 0; i < flips; i++) {
         flipArray[i] = coinFlip()
     }
@@ -76,13 +76,8 @@ app.get('/app/flips/:number', (req, res) => {
     res.status(200).json({'flip array' : doAFlip, 'summary' : countThem})
     });
 
-app.get('/app/flip/call/heads', (req, res) => {
-    const guessing = flipACoin(req.params.call)
-    res.status(200).json(guessing)
-});
-
-app.get('/app/flip/call/tails', (req, res) => {
-    const guessing = flipACoin(req.params.call)
+app.get('/app/flip/call/:which(heads|tails)/', (req, res) => {
+    const guessing = flipACoin(req.params.which)
     res.status(200).json(guessing)
 });
 
