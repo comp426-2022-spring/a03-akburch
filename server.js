@@ -72,7 +72,7 @@ app.get('/app/flip/', (req, res) => {
 
 app.get('/app/flips/:number', (req, res) => {
     var doAFlip = coinFlips(req.params.number)
-    var countThem = countFlips(flip)
+    var countThem = countFlips(doAFlip)
     res.status(200).json({'flip array' : doAFlip, 'summary' : countThem})
     });
 
