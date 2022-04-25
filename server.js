@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const args = require('minimist')(process.argv.slice(2))
-const HTTP_PORT = args.port || 8080
+const HTTP_PORT = args.port || process.env.PORT || 8080
 
 const server = app.listen(HTTP_PORT, () => {
     console.log('App listening on port %PORT%'.replace('%PORT%',HTTP_PORT))
@@ -79,6 +79,11 @@ app.get('/app/flips/:number', (req, res) => {
     });
 
 app.get('/app/flip/call/heads', (req, res) => {
+    const guessing = flipACoin(req.params.call)
+    res.status(200).json(guessing)
+});
+
+app.get('/app/flip/call/tails', (req, res) => {
     const guessing = flipACoin(req.params.call)
     res.status(200).json(guessing)
 });
