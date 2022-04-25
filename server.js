@@ -19,49 +19,49 @@ app.get('/app/', (req, res) => {
 // inserted from a02
 
 function coinFlip() {
-    var value = Math.round(Math.random)
-    let result = ""
+    var value = Math.round(Math.random);
+    let result = "";
     if (value < 1) {
-        result = "tails"
+        result = "tails";
     } else {
-        result = "heads"
+        result = "heads";
     }
-    return result
+    return result;
     }
 
 function coinFlips(flips) {
-    var flipArray = []
+    var flipArray = [];
     for (let i = 0; i < flips; i++) {
-        flipArray[i] = coinFlip()
+        flipArray[i] = coinFlip();
     }
-    return flipArray
+    return flipArray;
     }
 
 function countFlips(array) {
-    let headsAmt = 0
-    let tailsAmt = 0
+    let headsAmt = 0;
+    let tailsAmt = 0;
     let result = {tails: tailsAmt, heads: headsAmt}
     for (let i = 0; i < array.length; i++) {
         if (array[i] == "heads") {
-        headsAmt += 1
+        headsAmt += 1;
         } else if (array[i] == "tails") {
-        tailsAmt += 1
+        tailsAmt += 1;
         }
     }
-    console.log(array)
-    return result
+    console.log(array);
+    return result;
     }
 
 function flipACoin(call) {
-    let flipV = coinFlip()
-    let resultV = ""
-    let finalResult = {call: call, flip: flipV, result: resultV}
+    var flipV = coinFlip();
+    var resultV = "";
     if (call == flipV) {
-        resultV = "win"
+        resultV = "win";
     } else {
-        resultV = "lose"
+        resultV = "lose";
     }
-    return finalResult
+    const finalResult = {call: call, flip: flipV, result: resultV};
+    return finalResult;
     }
 
 app.get('/app/flip/', (req, res) => {
