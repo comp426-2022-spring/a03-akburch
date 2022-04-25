@@ -1,0 +1,15 @@
+{
+  "name": "a03-akburch",
+  "version": "1.0.0",
+  "description": "doing server things",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js --port=5555"
+  },
+  "author": "Anthony Burch",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "express": "^4.17.3",
+    "minimist": "^1.2.6"
+  }
+}
